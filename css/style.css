@@ -1,0 +1,512 @@
+/* ==========================================================================
+   VARIABLES CSS Y ESTILOS GLOBALES
+   ========================================================================== */
+:root {
+  --color-principal: #dc2626;      /* Rojo corporativo */
+  --color-secundario: #f59e0b;     /* Amarillo corporativo */
+  --color-complementario: #ffffff; /* Blanco */
+  --color-fondo: #ffffff;          /* Blanco de fondo */
+  --color-texto: #1f2937;          /* Gris oscuro para texto */
+  --color-gris-claro: #f3f4f6;     /* Gris suave para fondos secundarios */
+  
+  --fuente-titulos: Helvetica, Arial, sans-serif;
+  --fuente-textos: Arial, sans-serif;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-textos);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.6;
+}
+
+/* Títulos con tipografía Helvetica */
+h1, h2, h3, h4 {
+  font-family: var(--fuente-titulos);
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--color-principal);
+  margin-bottom: 30px;
+}
+
+/* Estilos de Botones generales */
+.boton {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #d97706; /* Tono de amarillo más oscuro */
+}
+
+/* ==========================================================================
+   1. HEADER / ENCABEZADO (FLEXBOX)
+   ========================================================================== */
+.encabezado {
+  background-color: var(--color-principal);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.encabezado-contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-complementario);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-secundario);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a {
+  color: var(--color-complementario);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: var(--color-secundario);
+}
+
+.menu .boton-menu {
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.menu .boton-menu:hover {
+  background-color: var(--color-complementario);
+  color: var(--color-principal);
+}
+
+/* ==========================================================================
+   2. HERO SECTION (FLEXBOX)
+   ========================================================================== */
+.hero {
+  background-color: var(--color-gris-claro);
+  padding: 60px 0;
+}
+
+.hero-contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-texto {
+  flex: 1;
+}
+
+.hero-texto h1 {
+  font-size: 2.5rem;
+  color: var(--color-principal);
+  margin-bottom: 10px;
+}
+
+.hero-texto .eslogan {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-secundario);
+  margin-bottom: 15px;
+}
+
+.hero-texto .descripcion {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.hero-imagen {
+  flex: 1;
+}
+
+.hero-imagen img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   3. SECCIÓN NOSOTROS (FLEXBOX)
+   ========================================================================== */
+.nosotros {
+  padding: 60px 0;
+}
+
+.nosotros-contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nosotros-imagen {
+  flex: 1;
+}
+
+.nosotros-imagen img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.nosotros-texto {
+  flex: 1;
+}
+
+.nosotros-texto h2 {
+  font-size: 2rem;
+  color: var(--color-principal);
+  margin-bottom: 20px;
+}
+
+.nosotros-texto p {
+  margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   4. PRODUCTOS (FLEXBOX WRAP & GAP)
+   ========================================================================== */
+.productos {
+  padding: 60px 0;
+  background-color: var(--color-gris-claro);
+}
+
+.productos-contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.producto-tarjeta {
+  background-color: var(--color-complementario);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  width: calc(33.333% - 20px);
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.producto-tarjeta img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.producto-tarjeta h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.producto-tarjeta p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.producto-tarjeta .precio {
+  font-weight: bold;
+  color: var(--color-principal);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.boton-tarjeta {
+  width: 100%;
+  text-align: center;
+}
+
+/* ==========================================================================
+   5. BENEFICIOS O SERVICIOS (FLEXBOX)
+   ========================================================================== */
+.servicios {
+  padding: 60px 0;
+}
+
+.servicios-contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.servicio-tarjeta {
+  background-color: var(--color-gris-claro);
+  border-radius: 8px;
+  padding: 25px;
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.servicio-tarjeta img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.servicio-tarjeta h3 {
+  color: var(--color-principal);
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   6. TABLA DE OFERTAS
+   ========================================================================== */
+.seccion-tabla {
+  padding: 60px 0;
+  background-color: var(--color-gris-claro);
+}
+
+.tabla-contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-complementario);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background-color: var(--color-principal);
+  color: var(--color-complementario);
+  font-family: var(--fuente-titulos);
+}
+
+tr:hover {
+  background-color: #fef2f2; /* Tono rojo muy claro al pasar el cursor */
+}
+
+/* ==========================================================================
+   7. GALERÍA DE IMÁGENES (FLEXBOX)
+   ========================================================================== */
+.galeria {
+  padding: 60px 0;
+}
+
+.galeria-contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.galeria-contenedor img {
+  width: calc(33.333% - 20px);
+  min-width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.galeria-contenedor img:hover {
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   8. FORMULARIO DE CONTACTO
+   ========================================================================== */
+.contacto {
+  padding: 60px 0;
+  background-color: var(--color-gris-claro);
+}
+
+.formulario-contenedor {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--color-complementario);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.campo {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-family: var(--fuente-textos);
+  font-size: 1rem;
+}
+
+.boton-enviar {
+  width: 100%;
+  background-color: var(--color-principal);
+  color: var(--color-complementario);
+  font-size: 1.1rem;
+}
+
+.boton-enviar:hover {
+  background-color: #b91c1c;
+}
+
+/* ==========================================================================
+   9. FOOTER / PIE DE PÁGINA (FLEXBOX)
+   ========================================================================== */
+.pie-pagina {
+  background-color: var(--color-texto);
+  color: var(--color-complementario);
+  padding: 40px 0 20px;
+}
+
+.pie-pagina-contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.bloque-footer {
+  flex: 1;
+  min-width: 200px;
+}
+
+.bloque-footer h3,
+.bloque-footer h4 {
+  color: var(--color-secundario);
+  margin-bottom: 10px;
+}
+
+.eslogan-footer {
+  font-style: italic;
+}
+
+.derechos {
+  text-align: center;
+  border-top: 1px solid #374151;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .encabezado-contenedor {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-contenedor,
+  .nosotros-contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .producto-tarjeta,
+  .galeria-contenedor img {
+    width: 100%;
+  }
+}
